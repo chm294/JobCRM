@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha ./tests.js",
     "run": "nodemon ./server/index.js & webpack -w",
-    "stop": "pkill -9 node"
+    "stop": "pkill -9 node",
+    "start": "npm run-script run"
   },
   "author": "Team Alderaan",
   "license": "MIT",
