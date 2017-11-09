@@ -118,6 +118,11 @@ app.get('/login', (req, res) => {
   res.send('app')
 })
 
+app.get('*', (req, res) => {
+  //   res.send(__dirname + '..'+ 'public'+ 'index.html');
+  res.redirect('/');
+});
+
 app.get('/input', (req, res) => {
   console.log(req.body);
 
@@ -163,7 +168,7 @@ app.post('/records', (req, res) => {
   //   })
   // should perform a search using req.body.searchKeyword or something like that
   console.log('request received')
-  res.send('request received', 201)
+  res.sendStatus(201)
 })
 
 

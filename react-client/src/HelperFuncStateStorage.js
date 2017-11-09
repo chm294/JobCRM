@@ -56,7 +56,6 @@ class HelperFuncStateStorage {
   onSubmit(inst) {
     axios.post('input', inst.state)
       .then(function(response) {
-        console.log('works', response);
       })
       .catch(function(error) {
         console.error('error', error);
