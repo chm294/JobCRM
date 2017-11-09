@@ -156,13 +156,14 @@ app.get('/records', (req, res) => {
 })
 
 app.post('/records', (req, res) => {
-  User.findById(loggedInUserId)
-    .then(user => {
-      res.status(200)
-      res.send(user)
-    })
-
+  // User.findById(loggedInUserId)
+  //   .then(user => {
+  //     res.status(201)
+  //     res.send(user)
+  //   })
   // should perform a search using req.body.searchKeyword or something like that
+  console.log('request received')
+  res.send('request received', 201)
 })
 
 

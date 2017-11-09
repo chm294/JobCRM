@@ -64,6 +64,15 @@ class HelperFuncStateStorage {
       return null;
   }
 
+  search(inst){
+    axios.post('records', {searchValue: inst.state.searchValue})
+      .then(function(response) {
+      })
+      .catch(function(error) {
+        console.error('error', error);
+      });
+    return null;
+  }
 
 }
 
