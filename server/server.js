@@ -78,7 +78,7 @@ RowEntry.sync({ force: true }).then(() => {
 });
 
 
-/* =========== ROUTES ============= 
+/* =========== ROUTES =============
 
 DESC.ROUTE     METHOD    SQL ACTION
 =======================================================
@@ -136,6 +136,14 @@ app.get('/input', (req, res) => {
 
   res.send('received some input');
 })
+
+
+/////////////////////////////////////INPUT PAGE SUBMIT
+app.post('/input', (req, res) => {
+  RowEntry.create(req.body)
+  .then(()=>{res.send(201)})
+})
+
 
 app.get('/records', (req, res) => {
   User.findById(loggedInUserId)

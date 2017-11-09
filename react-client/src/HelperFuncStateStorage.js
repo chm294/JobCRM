@@ -54,7 +54,7 @@ class HelperFuncStateStorage {
   }
 
   onSubmit(inst) {
-    axios.post('entries', inst.state)
+    axios.post('input', inst.state)
       .then(function(response) {
         console.log('works', response);
       })
