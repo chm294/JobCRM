@@ -10,7 +10,7 @@ class HelperFuncStateStorage {
     e.stopPropagation()
     let stateUpdate = {};
     stateUpdate[stateName] = !inst.state[stateName];
-    inst.setState(stateUpdate); 
+    inst.setState(stateUpdate);
     //--> this started throwing strange errors.
     // now kind of unclear how this works. helpdesk material.
 

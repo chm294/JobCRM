@@ -205,6 +205,24 @@ app.post('/insert', (req, res) => {
   })
 })
 
+///////////////////
+app.post('/deleteRecord', (req, res) => {
+  console.log(req.body)
+  RowEntry.findOne({
+    where: {
+      id: req.body.id
+    }
+  }).then(id => {
+    console.log(id)
+    id.destroy();
+    res.status(201)
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  })
+})
+//////////////////
+
 app.post('/search', (req, res) => {
   console.log(req.body);
   RowEntry.findAll({

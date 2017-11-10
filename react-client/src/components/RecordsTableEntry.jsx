@@ -1,5 +1,8 @@
 import React from 'react';
 import hf from '../HelperFuncStateStorage';
+import axios from 'axios';
+import LinkButton from './LinkButton.jsx';
+
 // import Axios from 'axios';
 
 export default class RecordsTableEntry extends React.Component {
@@ -16,7 +19,19 @@ export default class RecordsTableEntry extends React.Component {
 			rejected: this.props.record.rejected
     }
   }
-    
+
+  delete() {
+    let statusUpdate = {id : this.props.record.id}
+    axios.post('deleteRecord', statusUpdate)
+      .then(function(response) {
+        console.log('deleted', response);
+      }.bind(this))
+      .catch(function(error) {
+        console.error('error', error);
+      });
+    return null
+  }
+
   render() {
     return (
       <tr>
@@ -30,6 +45,7 @@ export default class RecordsTableEntry extends React.Component {
       <td> <input type="checkbox" name="secondInterview" checked={this.state.secondInterview} onChange={(e) => {hf.postFieldValue(this, 'secondInterview', e)}} /></td>
       <td> <input type="checkbox" name="offer" checked={this.state.offer} onChange={(e) => {hf.postFieldValue(this, 'offer', e)}} /></td>
       <td> <input type="checkbox" name="rejected" checked={this.state.rejected} onChange={(e) => {hf.postFieldValue(this, 'rejected', e)}} /></td>
+      <td> <LinkButton title="Remove" clickFunction={this.delete.bind(this)}/> </td>
     </tr>
   )
   }
@@ -38,4 +54,3 @@ export default class RecordsTableEntry extends React.Component {
 //RecordsTableEntry.proptypes = {
 //  record: React.PropTypes.object.isRequired
 //};
-
